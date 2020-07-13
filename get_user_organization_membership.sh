@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script requires curls the admin endpoint of TFE and makes all organizations of an user available to Terraform as an external datasource.
+# This script curls the admin endpoint of TFE and makes all organizations of an user available to Terraform as an external datasource.
 # It has only been tested with bash on MacOS and requires the following tools:
 #  - curl
 #  - jq
