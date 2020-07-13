@@ -1,13 +1,11 @@
-# tf_ext_ds_user_org_membership
-This repo shows how to make the organizations a user is a member of available to the Terraform code and continue working with them.
+# TFE Get user's organizations membership
+This repo shows how to get the organizations a user is a member of and make them available to the Terraform code.
 
-The example uses an external data source. The shell script gets called during Terraform apply.
-
-Please also see the notes in the script.
+The example uses an external data source. The shell script gets called during Terraform apply. Please also see the notes in the shell script.
 
 Here is the outline:
 
-My user mkaesz@hashicorp.com is in two organizations. When I execute 'terraform apply', the shell script calls the TFE admin/users endpoint with the username as parameter. The username is provided from within Terraform (but could also come from somewhere else as part of the script). The script return a JSON map (required by Terraform) with string values. The example then uses the returned map and executed a local-exec from within a null_resource (just for illustration). The output then shows that the local-exec gets executed two times - once per organization which I am a member of.
+My user mkaesz@hashicorp.com is in two organizations. When I execute 'terraform apply', the shell script calls the TFE admin/users endpoint with the username as parameter. The username is provided from within Terraform (but could also come from somewhere else as part of the script). The script return a JSON map (required by Terraform) with string values. The example then uses the returned map and executes a local-exec from within a null_resource with for_each (just for illustration). The output then shows that the local-exec gets executed two times - once per organization which I am a member of.
 
 Output of execution:
 
