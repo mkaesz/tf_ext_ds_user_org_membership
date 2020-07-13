@@ -9,7 +9,7 @@ My user mkaesz@hashicorp.com is in two organizations. When I execute 'terraform 
 
 Output of execution:
 
-´´´mkaesz@hashicorp ~/w/t/e/user_membership> terraform apply
+```mkaesz@hashicorp ~/w/t/e/user_membership> terraform apply
 data.external.org_membership: Refreshing state...
 
 data "external" "org_membership" {
@@ -60,4 +60,4 @@ orgs_of_user_2 = {
   "msk" = "msk"
   "msk2" = "msk2"
 }
-´´´
+```
