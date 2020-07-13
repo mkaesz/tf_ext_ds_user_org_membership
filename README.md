@@ -9,7 +9,9 @@ My user mkaesz@hashicorp.com is in two organizations. When I execute 'terraform 
 
 Output of execution:
 
-```mkaesz@hashicorp ~/w/t/e/tf_ext_ds_user_org_membership (master) [1]> terraform init
+```
+
+mkaesz@hashicorp ~/w/t/e/tf_ext_ds_user_org_membership (master) [1]> terraform init
 
 Initializing the backend...
 
@@ -38,6 +40,8 @@ should now work.
 If you ever set or change modules or backend configuration for Terraform,
 rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
+
+
 mkaesz@hashicorp ~/w/t/e/tf_ext_ds_user_org_membership (master)> terraform apply
 data.external.org_membership: Refreshing state...
 
