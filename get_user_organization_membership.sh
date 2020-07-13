@@ -22,6 +22,7 @@ data=$(curl -k \
   --header "Content-Type: application/vnd.api+json" \
   "https://$TFE_HOST/api/v2/admin/users?q=$USERNAME" | jq '.data')
 
+# If we ask TFE for a user's organizations and the user doesn't exist, the response will contain an empty data array. 
 if [ $data = "[]" ]; then
   echo {}
 else
