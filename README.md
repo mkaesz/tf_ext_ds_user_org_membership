@@ -1,4 +1,4 @@
-# TFE Get user's organizations membership
+# Get user's memberships in organizations via external data source (TFE)
 This repo shows how to get the organizations a user is a member of and make them available to the Terraform code.
 
 The example uses an external data source. The shell script gets called during Terraform apply. Please also see the notes in the shell script.
@@ -9,10 +9,38 @@ My user mkaesz@hashicorp.com is in two organizations. When I execute 'terraform 
 
 Output of execution:
 
-```mkaesz@hashicorp ~/w/t/e/user_membership> terraform apply
+```mkaesz@hashicorp ~/w/t/e/tf_ext_ds_user_org_membership (master) [1]> terraform init
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Checking for available provider plugins...
+- Downloading plugin for provider "external" (hashicorp/external) 1.2.0...
+- Downloading plugin for provider "null" (hashicorp/null) 2.1.2...
+
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
+
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, it is recommended to add version = "..." constraints to the
+corresponding provider blocks in configuration, with the constraint strings
+suggested below.
+
+* provider.external: version = "~> 1.2"
+* provider.null: version = "~> 2.1"
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+mkaesz@hashicorp ~/w/t/e/tf_ext_ds_user_org_membership (master)> terraform apply
 data.external.org_membership: Refreshing state...
 
-data "external" "org_membership" {
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create
@@ -37,16 +65,16 @@ Do you want to perform these actions?
 
   Enter a value: yes
 
-null_resource.example["msk"]: Creating...
 null_resource.example["msk2"]: Creating...
-null_resource.example["msk"]: Provisioning with 'local-exec'...
+null_resource.example["msk"]: Creating...
 null_resource.example["msk2"]: Provisioning with 'local-exec'...
-null_resource.example["msk2"] (local-exec): Executing: ["/bin/sh" "-c" "echo msk2"]
+null_resource.example["msk"]: Provisioning with 'local-exec'...
 null_resource.example["msk"] (local-exec): Executing: ["/bin/sh" "-c" "echo msk"]
-null_resource.example["msk2"] (local-exec): msk2
+null_resource.example["msk2"] (local-exec): Executing: ["/bin/sh" "-c" "echo msk2"]
 null_resource.example["msk"] (local-exec): msk
-null_resource.example["msk"]: Creation complete after 0s [id=7797757597600513696]
-null_resource.example["msk2"]: Creation complete after 0s [id=6745800050653526708]
+null_resource.example["msk2"] (local-exec): msk2
+null_resource.example["msk"]: Creation complete after 0s [id=3636402564744118972]
+null_resource.example["msk2"]: Creation complete after 0s [id=2669707698658396266]
 
 Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 
