@@ -1,5 +1,5 @@
 # Get user's membership in organizations (TFE)
-This repo shows how to get the organizations a user is a member of and make them available to the Terraform code.
+This repo includes an example on how to get the organizations a user is a member of and make them available to the Terraform code.
 
 The example uses an external data source. The shell script gets called during Terraform apply. Please also see the notes in the shell script.
 
