@@ -10,7 +10,7 @@ My user mkaesz@hashicorp.com is in two organizations. When I execute 'terraform 
 Output of execution:
 
 ```
-mkaesz@hashicorp ~/w/t/e/tf_ext_ds_user_org_membership (master) [1]> **terraform init**
+mkaesz@hashicorp ~/w/t/e/tf_ext_ds_user_org_membership (master) [1]> terraform init
 
 Initializing the backend...
 
@@ -41,7 +41,7 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 
 
-mkaesz@hashicorp ~/w/t/e/tf_ext_ds_user_org_membership (master)> **terraform apply**
+mkaesz@hashicorp ~/w/t/e/tf_ext_ds_user_org_membership (master)> terraform apply
 data.external.org_membership: Refreshing state...
 
 An execution plan has been generated and is shown below.
